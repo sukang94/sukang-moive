@@ -1,12 +1,10 @@
 import React from "react";
 import { Platform } from "react-native";
-import { Text, View } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import Movies from "./../screens/Movies";
 import Seach from "../screens/Seach";
 import Tv from "../screens/Tv";
-import { BG_COLOR } from "../constants/Colors";
 import TabBarIcon from "../components/TabBarlcon";
 
 const TabNavigator = createBottomTabNavigator(
