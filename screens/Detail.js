@@ -1,3 +1,7 @@
 import React from "react";
-import { TEXT } from "react-native";
-export default () => <TEXT> Detail </TEXT>;
+import { View, Text } from "react-native";
+export default () => (
+  <View>
+    <Text> Detail </Text>
+  </View>
+);

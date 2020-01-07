@@ -2,30 +2,25 @@ import React from "react";
 import { Text, View } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
+import Movies from "./../screens/Movies";
+import Seach from "../screens/Seach";
+import Tv from "../screens/Tv";
+import { BG_COLOR } from "../constants/Colors";
 
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Home!</Text>
-      </View>
-    );
+const TabNavigator = createBottomTabNavigator(
+  {
+    Moives: { screen: Movies },
+    TV: { screen: Tv },
+    Search: { screen: Seach }
+  },
+  {
+    tabBarOptions: {
+      showLabel: false,
+      style: {
+        backgroundColor: BG_COLOR
+      }
+    }
   }
-}
-
-class SettingsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-}
-
-const TabNavigator = createBottomTabNavigator({
-  Home: { screen: HomeScreen },
-  Settings: { screen: SettingsScreen }
-});
+);
 
 export default createAppContainer(TabNavigator);
