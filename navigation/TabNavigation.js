@@ -7,16 +7,7 @@ import Seach from "../screens/Seach";
 import Tv from "../screens/Tv";
 import TabBarIcon from "../components/TabBarlcon";
 import { createStackNavigator } from "react-navigation-stack";
-
-const createStack = (Screen, title) =>
-  createStackNavigator({
-    screen: {
-      Screen,
-      navigationOptions: {
-        title
-      }
-    }
-  });
+import { createStack } from "../navigation/config";
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -38,9 +29,7 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     TV: {
-      screen: createStackNavigator({
-        Tv: { screen: Tv, navigationOptions: { title: "티비" } }
-      }),
+      screen: createStack(Tv, "티비"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -51,9 +40,7 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     Search: {
-      screen: createStackNavigator({
-        Seach: { screen: Seach, navigationOptions: { title: "검색" } }
-      }),
+      screen: createStack(Seach, "검색"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
