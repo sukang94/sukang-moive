@@ -6,11 +6,27 @@ import Movies from "./../screens/Movies";
 import Seach from "../screens/Seach";
 import Tv from "../screens/Tv";
 import TabBarIcon from "../components/TabBarlcon";
+import { createStackNavigator } from "react-navigation-stack";
+
+const createStack = (Screen, title) =>
+  createStackNavigator({
+    screen: {
+      Screen,
+      navigationOptions: {
+        title
+      }
+    }
+  });
 
 const TabNavigator = createBottomTabNavigator(
   {
     Moives: {
-      screen: Movies,
+      screen: createStackNavigator({
+        Movies: {
+          screen: Movies,
+          navigationOptions: { title: "서울 동작구 장승배기로4길 9" }
+        }
+      }),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -22,7 +38,9 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     TV: {
-      screen: Tv,
+      screen: createStackNavigator({
+        Tv: { screen: Tv, navigationOptions: { title: "티비" } }
+      }),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -33,7 +51,9 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     Search: {
-      screen: Seach,
+      screen: createStackNavigator({
+        Seach: { screen: Seach, navigationOptions: { title: "검색" } }
+      }),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
