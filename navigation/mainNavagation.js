@@ -6,11 +6,11 @@ import { headerStyles } from "./config";
 
 const MainNavigation = createStackNavigator(
   {
-    Tab: { screen: TabNavigation, navigationOptions: { header: null } },
+    Tap: { screen: TabNavigation, navigationOptions: { header: null } },
     Detail: { screen: DetailScreen, navigationOptions: { ...headerStyles } }
   },
   {
-    // mode: "modal" // 카드 애니메이션임
+    headerBackTitleVisible: false
   }
 );
 
